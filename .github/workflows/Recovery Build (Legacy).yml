@@ -10,19 +10,19 @@ on:
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
-        default: 'twrp-7.1'
+        default: 'twrp-6.0'
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/ycly2333/android_device_EEBBK_H3000S-twrp'
+        default: 'https://github.com/oppo-mediatek-devs/twrp_oppo_A1601'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'twrp-7.1'
+        default: 'android-6.0'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/EEBBK/H3000S'
+        default: 'device/oppo/A1601'
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: false
@@ -32,11 +32,11 @@ on:
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
-        default: 'H3000S'
+        default: 'A1601'
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME'
         required: true
-        default: 'omni_H3000S'
+        default: 'omni_A1601'
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
@@ -45,7 +45,7 @@ on:
 jobs:
   build:
     if: github.event.repository.owner.id == github.event.sender.id
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
@@ -109,8 +109,8 @@ jobs:
         mkdir workspace
         cd workspace
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
-        git config --global user.name "azwhikaru"
-        git config --global user.email "azwhikaru+37921907@github.com"
+        git config --global user.name "Emmanuel"
+        git config --global user.email "alzadidine33@gmail.com"
         repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
       id: pwd
 
